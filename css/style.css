@@ -210,7 +210,7 @@ dialog::backdrop { background: #091712d9; }
 /* Destaques em dois trilhos, com dois cartões no celular e três no desktop. */
 .destaques { background: var(--marfim); }
 .destaques h2 { color: var(--verde); margin-bottom: 1.35rem; }
-.vitrine-destaques { --vitrine-visiveis: 2; --vitrine-espaco: clamp(.275rem, 1vw, .55rem); display: grid; gap: clamp(.55rem, 2vw, 1.1rem); }
+.vitrine-destaques { --vitrine-visiveis: 2; --vitrine-espaco: clamp(.11rem, .4vw, .22rem); display: grid; gap: clamp(.55rem, 2vw, 1.1rem); }
 .vitrine-janela { min-width: 0; overflow-x: auto; scroll-snap-type: x mandatory; }
 .vitrine-trilho {
   display: flex;
