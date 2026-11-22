@@ -50,7 +50,7 @@ button { font: inherit; cursor: pointer; }
 .cabecalho { position: sticky; top: 0; z-index: 4; background: var(--verde-escuro); color: var(--marfim); border-bottom: 1px solid #ffffff25; }
 .barra { min-height: 4.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .marca { display: inline-flex; align-items: center; gap: .6rem; color: var(--marfim); text-decoration: none; font: 800 clamp(1.5rem, 7vw, 1.85rem)/.9 var(--titulo); letter-spacing: .035em; text-transform: uppercase; }
-.marca-selo { display: grid; width: 2rem; aspect-ratio: 1; place-items: center; border: 1px solid var(--ouro); border-radius: 50%; color: var(--ouro); font: 700 1.25rem/1 Georgia, serif; }
+.marca-selo { flex: none; width: 2.5rem; height: 2.5rem; border-radius: 50%; }
 .menu-toggle { display: inline-flex; align-items: center; gap: .45rem; min-height: 2.75rem; border: 1px solid #ffffff50; border-radius: .3rem; padding: .3rem .65rem; background: transparent; color: var(--marfim); font-size: var(--fonte-apoio); }
 .navegacao { display: none; position: absolute; inset: 100% 0 auto; padding: .5rem 1.15rem 1rem; background: var(--verde-escuro); grid-template-columns: repeat(2, 1fr); box-shadow: 0 .7rem 1rem #0d201a35; }
 .navegacao[data-aberto="true"] { display: grid; }
@@ -210,7 +210,7 @@ dialog::backdrop { background: #091712d9; }
 /* Destaques em dois trilhos, com dois cartões no celular e três no desktop. */
 .destaques { background: var(--marfim); }
 .destaques h2 { color: var(--verde); margin-bottom: 1.35rem; }
-.vitrine-destaques { --vitrine-visiveis: 2; --vitrine-espaco: clamp(.55rem, 2vw, 1.1rem); display: grid; gap: var(--vitrine-espaco); }
+.vitrine-destaques { --vitrine-visiveis: 2; --vitrine-espaco: clamp(.275rem, 1vw, .55rem); display: grid; gap: clamp(.55rem, 2vw, 1.1rem); }
 .vitrine-janela { min-width: 0; overflow-x: auto; scroll-snap-type: x mandatory; }
 .vitrine-trilho {
   display: flex;
@@ -229,7 +229,6 @@ dialog::backdrop { background: #091712d9; }
 .vitrine-cartao figure { height: 100%; display: flex; flex-direction: column; }
 .vitrine-cartao img { width: 100%; aspect-ratio: 4/3; height: auto; object-fit: cover; }
 .vitrine-cartao figcaption { display: grid; flex: 1; min-height: 2.9rem; place-items: center; padding: .55rem .35rem; font: 750 clamp(var(--fonte-apoio), 3.5vw, 1.55rem)/1.18 var(--titulo); text-align: center; overflow-wrap: anywhere; }
-.vitrine-nota { margin-top: .65rem; }
 .vitrine-destaques[data-movimento] .vitrine-janela { overflow: hidden; scroll-snap-type: none; }
 .vitrine-destaques:not([data-movimento]) .vitrine-lista[aria-hidden] { display: none; }
 .vitrine-destaques[data-movimento] .vitrine-trilho { animation: desfilar-destaques 22s linear infinite; }
