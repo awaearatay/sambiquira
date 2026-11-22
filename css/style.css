@@ -209,9 +209,7 @@ dialog::backdrop { background: #091712d9; }
 }
 /* Destaques em dois trilhos, com dois cartões no celular e três no desktop. */
 .destaques { background: var(--marfim); }
-.destaques h2 { color: var(--verde); }
-.vitrine-cabeca { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .85rem 1rem; margin-bottom: 1.35rem; }
-.vitrine-cabeca .botao { min-height: 2.75rem; padding: .45rem .8rem; font-size: var(--fonte-apoio); }
+.destaques h2 { color: var(--verde); margin-bottom: 1.35rem; }
 .vitrine-destaques { --vitrine-visiveis: 2; --vitrine-espaco: clamp(.55rem, 2vw, 1.1rem); display: grid; gap: var(--vitrine-espaco); }
 .vitrine-janela { min-width: 0; overflow-x: auto; scroll-snap-type: x mandatory; }
 .vitrine-trilho {
@@ -236,7 +234,6 @@ dialog::backdrop { background: #091712d9; }
 .vitrine-destaques:not([data-movimento]) .vitrine-lista[aria-hidden] { display: none; }
 .vitrine-destaques[data-movimento] .vitrine-trilho { animation: desfilar-destaques 22s linear infinite; }
 .vitrine-destaques[data-movimento] .vitrine-direita .vitrine-trilho { animation-direction: reverse; }
-.vitrine-destaques[data-movimento="pausado"] .vitrine-trilho { animation-play-state: paused; }
 @keyframes desfilar-destaques {
   to { transform: translateX(-100%); }
 }

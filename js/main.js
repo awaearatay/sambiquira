@@ -18,7 +18,6 @@ controleNotas.addEventListener('click', () => {
 
 /* Repete os cartões visuais para fechar o ciclo de cada carrossel. */
 const vitrineDestaques = document.querySelector('#vitrine-destaques');
-const controleDestaques = document.querySelector('#controle-destaques');
 const reduzirDestaques = matchMedia('(prefers-reduced-motion: reduce)');
 const janelasDestaques = vitrineDestaques.querySelectorAll('.vitrine-janela');
 
@@ -30,30 +29,17 @@ janelasDestaques.forEach(janela => {
   lista.after(copia);
 });
 
-function atualizarDestaques(estado) {
-  if (estado === 'estatico') {
-    delete vitrineDestaques.dataset.movimento;
-  } else {
-    vitrineDestaques.dataset.movimento = estado;
-  }
-  const reproduzindo = estado === 'ativo';
-  controleDestaques.textContent = reproduzindo ? 'Pausar carrosséis' : 'Animar carrosséis';
-  janelasDestaques.forEach(janela => {
-    if (estado !== 'estatico') janela.scrollLeft = 0;
-    janela.tabIndex = estado === 'estatico' ? 0 : -1;
-  });
-}
-
 function aplicarPreferenciaDestaques() {
-  atualizarDestaques(reduzirDestaques.matches ? 'estatico' : 'ativo');
+  const animar = !reduzirDestaques.matches;
+  vitrineDestaques.toggleAttribute('data-movimento', animar);
+  janelasDestaques.forEach(janela => {
+    if (animar) janela.scrollLeft = 0;
+    janela.tabIndex = animar ? -1 : 0;
+  });
 }
 
 aplicarPreferenciaDestaques();
 reduzirDestaques.addEventListener('change', aplicarPreferenciaDestaques);
-controleDestaques.hidden = false;
-controleDestaques.addEventListener('click', () => {
-  atualizarDestaques(vitrineDestaques.dataset.movimento === 'ativo' ? 'pausado' : 'ativo');
-});
 
 /* Menu para celular */
 const menu = document.querySelector('#menu-toggle');
