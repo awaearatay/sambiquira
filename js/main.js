@@ -18,7 +18,8 @@ controleNotas.addEventListener('click', () => {
 
 /* Repete os cartões visuais para fechar o ciclo de cada carrossel. */
 const vitrineDestaques = document.querySelector('#vitrine-destaques');
-const reduzirDestaques = matchMedia('(prefers-reduced-motion: reduce)');
+// Nas larguras com dois cartões, os carrosséis sempre iniciam sozinhos.
+const reduzirDestaques = matchMedia('(min-width: 60rem) and (prefers-reduced-motion: reduce)');
 const janelasDestaques = vitrineDestaques.querySelectorAll('.vitrine-janela');
 
 janelasDestaques.forEach(janela => {
